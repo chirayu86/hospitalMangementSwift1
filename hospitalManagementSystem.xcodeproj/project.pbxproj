@@ -1,0 +1,395 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6D441DFE291CDCB100B37D3D /* ObjectFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D441DFD291CDCB100B37D3D /* ObjectFactory.swift */; };
+		6DB1921728F92586008A5046 /* Prescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB1921628F92586008A5046 /* Prescription.swift */; };
+		6DB1921928F927C3008A5046 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB1921828F927C3008A5046 /* Printer.swift */; };
+		6DB1921D28F9335D008A5046 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB1921C28F9335D008A5046 /* MenuController.swift */; };
+		6DB95D9D290135400028CF60 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB95D9C290135400028CF60 /* Doctor.swift */; };
+		6DB95D9F2901458D0028CF60 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB95D9E2901458D0028CF60 /* Patient.swift */; };
+		6DB95DA3290259760028CF60 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB95DA2290259760028CF60 /* Admin.swift */; };
+		6DB95DB8290408F00028CF60 /* Recepitionist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB95DB7290408F00028CF60 /* Recepitionist.swift */; };
+		6DB95DBC2907A8720028CF60 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB95DBB2907A8720028CF60 /* Bill.swift */; };
+		6DBDF52728F911A700EFE471 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBDF52628F911A700EFE471 /* main.swift */; };
+		6DBDF52E28F911CD00EFE471 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBDF52D28F911CD00EFE471 /* User.swift */; };
+		6DC005D828FD559E00733B29 /* ValidationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC005D728FD559E00733B29 /* ValidationClass.swift */; };
+		6DDC3CE1291B906C00AA3252 /* JsonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDC3CE0291B906C00AA3252 /* JsonHandler.swift */; };
+		6DF9C6FA29117E5000933BBB /* Pharmacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9C6F929117E5000933BBB /* Pharmacy.swift */; };
+		6DF9C6FC291261FD00933BBB /* Lab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9C6FB291261FD00933BBB /* Lab.swift */; };
+		6DF9C6FF2918C54700933BBB /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9C6FE2918C54700933BBB /* Database.swift */; };
+		6DF9C701291A2F0600933BBB /* Pharmacist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9C700291A2F0600933BBB /* Pharmacist.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6DBDF52128F911A700EFE471 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6D441DFD291CDCB100B37D3D /* ObjectFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectFactory.swift; sourceTree = "<group>"; };
+		6D8E02AE2909023C00E82B99 /* patientData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = patientData.json; sourceTree = "<group>"; };
+		6D8E02B2290935C800E82B99 /* doctor.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = doctor.json; sourceTree = "<group>"; };
+		6DB1921628F92586008A5046 /* Prescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prescription.swift; sourceTree = "<group>"; };
+		6DB1921828F927C3008A5046 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
+		6DB1921C28F9335D008A5046 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		6DB95D9C290135400028CF60 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		6DB95D9E2901458D0028CF60 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		6DB95DA2290259760028CF60 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
+		6DB95DB7290408F00028CF60 /* Recepitionist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recepitionist.swift; sourceTree = "<group>"; };
+		6DB95DBB2907A8720028CF60 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		6DBDF52328F911A700EFE471 /* hospitalManagementSystem */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hospitalManagementSystem; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DBDF52628F911A700EFE471 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		6DBDF52D28F911CD00EFE471 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6DC005D728FD559E00733B29 /* ValidationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationClass.swift; sourceTree = "<group>"; };
+		6DDC3CDF291B8C0D00AA3252 /* medicine.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = medicine.json; sourceTree = "<group>"; };
+		6DDC3CE0291B906C00AA3252 /* JsonHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHandler.swift; sourceTree = "<group>"; };
+		6DF9C6F929117E5000933BBB /* Pharmacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pharmacy.swift; sourceTree = "<group>"; };
+		6DF9C6FB291261FD00933BBB /* Lab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab.swift; sourceTree = "<group>"; };
+		6DF9C6FE2918C54700933BBB /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		6DF9C700291A2F0600933BBB /* Pharmacist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pharmacist.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6DBDF52028F911A700EFE471 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6D8E02B7290A35A300E82B99 /* users */ = {
+			isa = PBXGroup;
+			children = (
+				6DBDF52D28F911CD00EFE471 /* User.swift */,
+				6DB95DB7290408F00028CF60 /* Recepitionist.swift */,
+				6DB95DA2290259760028CF60 /* Admin.swift */,
+				6DB95D9E2901458D0028CF60 /* Patient.swift */,
+				6DB95D9C290135400028CF60 /* Doctor.swift */,
+				6DF9C700291A2F0600933BBB /* Pharmacist.swift */,
+			);
+			path = users;
+			sourceTree = "<group>";
+		};
+		6D8E02B8290A35E900E82B99 /* functional classes */ = {
+			isa = PBXGroup;
+			children = (
+				6DC005D728FD559E00733B29 /* ValidationClass.swift */,
+				6DB1921C28F9335D008A5046 /* MenuController.swift */,
+				6DB1921828F927C3008A5046 /* Printer.swift */,
+				6DF9C6FE2918C54700933BBB /* Database.swift */,
+				6D441DFD291CDCB100B37D3D /* ObjectFactory.swift */,
+				6DDC3CE0291B906C00AA3252 /* JsonHandler.swift */,
+			);
+			path = "functional classes";
+			sourceTree = "<group>";
+		};
+		6D8E02B9290A361D00E82B99 /* misc */ = {
+			isa = PBXGroup;
+			children = (
+				6DB1921628F92586008A5046 /* Prescription.swift */,
+				6DB95DBB2907A8720028CF60 /* Bill.swift */,
+			);
+			path = misc;
+			sourceTree = "<group>";
+		};
+		6DBDF51A28F911A700EFE471 = {
+			isa = PBXGroup;
+			children = (
+				6DBDF52528F911A700EFE471 /* hospitalManagementSystem */,
+				6DBDF52428F911A700EFE471 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6DBDF52428F911A700EFE471 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6DBDF52328F911A700EFE471 /* hospitalManagementSystem */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6DBDF52528F911A700EFE471 /* hospitalManagementSystem */ = {
+			isa = PBXGroup;
+			children = (
+				6DF9C6FD2912784D00933BBB /* hospitalBranches */,
+				6DF9C6F8290F92E700933BBB /* dataFiles */,
+				6D8E02B9290A361D00E82B99 /* misc */,
+				6D8E02B8290A35E900E82B99 /* functional classes */,
+				6D8E02B7290A35A300E82B99 /* users */,
+				6DBDF52628F911A700EFE471 /* main.swift */,
+			);
+			path = hospitalManagementSystem;
+			sourceTree = "<group>";
+		};
+		6DF9C6F8290F92E700933BBB /* dataFiles */ = {
+			isa = PBXGroup;
+			children = (
+				6D8E02AE2909023C00E82B99 /* patientData.json */,
+				6D8E02B2290935C800E82B99 /* doctor.json */,
+				6DDC3CDF291B8C0D00AA3252 /* medicine.json */,
+			);
+			path = dataFiles;
+			sourceTree = "<group>";
+		};
+		6DF9C6FD2912784D00933BBB /* hospitalBranches */ = {
+			isa = PBXGroup;
+			children = (
+				6DF9C6FB291261FD00933BBB /* Lab.swift */,
+				6DF9C6F929117E5000933BBB /* Pharmacy.swift */,
+			);
+			path = hospitalBranches;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6DBDF52228F911A700EFE471 /* hospitalManagementSystem */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DBDF52A28F911A700EFE471 /* Build configuration list for PBXNativeTarget "hospitalManagementSystem" */;
+			buildPhases = (
+				6DBDF51F28F911A700EFE471 /* Sources */,
+				6DBDF52028F911A700EFE471 /* Frameworks */,
+				6DBDF52128F911A700EFE471 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = hospitalManagementSystem;
+			productName = hospitalManagementSystem;
+			productReference = 6DBDF52328F911A700EFE471 /* hospitalManagementSystem */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6DBDF51B28F911A700EFE471 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					6DBDF52228F911A700EFE471 = {
+						CreatedOnToolsVersion = 14.0;
+					};
+				};
+			};
+			buildConfigurationList = 6DBDF51E28F911A700EFE471 /* Build configuration list for PBXProject "hospitalManagementSystem" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6DBDF51A28F911A700EFE471;
+			productRefGroup = 6DBDF52428F911A700EFE471 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6DBDF52228F911A700EFE471 /* hospitalManagementSystem */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6DBDF51F28F911A700EFE471 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DB1921928F927C3008A5046 /* Printer.swift in Sources */,
+				6DF9C6FA29117E5000933BBB /* Pharmacy.swift in Sources */,
+				6DBDF52E28F911CD00EFE471 /* User.swift in Sources */,
+				6DF9C701291A2F0600933BBB /* Pharmacist.swift in Sources */,
+				6DDC3CE1291B906C00AA3252 /* JsonHandler.swift in Sources */,
+				6DB95D9F2901458D0028CF60 /* Patient.swift in Sources */,
+				6DB95D9D290135400028CF60 /* Doctor.swift in Sources */,
+				6DB95DBC2907A8720028CF60 /* Bill.swift in Sources */,
+				6DF9C6FF2918C54700933BBB /* Database.swift in Sources */,
+				6DB95DA3290259760028CF60 /* Admin.swift in Sources */,
+				6DC005D828FD559E00733B29 /* ValidationClass.swift in Sources */,
+				6D441DFE291CDCB100B37D3D /* ObjectFactory.swift in Sources */,
+				6DB1921D28F9335D008A5046 /* MenuController.swift in Sources */,
+				6DBDF52728F911A700EFE471 /* main.swift in Sources */,
+				6DB95DB8290408F00028CF60 /* Recepitionist.swift in Sources */,
+				6DB1921728F92586008A5046 /* Prescription.swift in Sources */,
+				6DF9C6FC291261FD00933BBB /* Lab.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6DBDF52828F911A700EFE471 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6DBDF52928F911A700EFE471 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		6DBDF52B28F911A700EFE471 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6DBDF52C28F911A700EFE471 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6DBDF51E28F911A700EFE471 /* Build configuration list for PBXProject "hospitalManagementSystem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DBDF52828F911A700EFE471 /* Debug */,
+				6DBDF52928F911A700EFE471 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DBDF52A28F911A700EFE471 /* Build configuration list for PBXNativeTarget "hospitalManagementSystem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DBDF52B28F911A700EFE471 /* Debug */,
+				6DBDF52C28F911A700EFE471 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6DBDF51B28F911A700EFE471 /* Project object */;
+}
