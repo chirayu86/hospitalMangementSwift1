@@ -4,8 +4,8 @@
 //
 //  Created by chirayu-pt6280 on 20/10/22.
 //
-class Doctor : User
-{
+class Doctor : User {
+    
     let name:String
     let id: Int
     let passwordHash: Int
@@ -30,24 +30,16 @@ class Doctor : User
     func getPatientPreviouslyPrescribed(id: Int)->Patient?{
         return myPatientList[id]
     }
+    
     //overloaded function to get all values
-    func getPatientPreviouslyPrescribed()->[Int:Patient]{
+    func getPatientPreviouslyPrescribed()->[Int:Patient] {
         return myPatientList
     }
     
-    
-    //get list of available medicines in the pharmacy
-    func getAvailableMedicines()->[Int:Medicine]{
-        return Pharamacy.sharedPharmacyObject.getMedicineList()
-    }
-    
-    // get the list of available tests in the lab
-    func getAvailableTests()->[Int:Test]{
-        return Lab.sharedLabObject.getTestList()
-        
-    }
+
+}
     
     
     
  
-}
+

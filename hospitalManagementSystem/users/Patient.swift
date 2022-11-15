@@ -16,8 +16,8 @@ class Patient : User
     var prescriptions: [Prescription]
 
    
-    init(age:Int,date:String,name:String,id:Int,passwordHash:Int)
-    {
+    init(age:Int,date:String,name:String,id:Int,passwordHash:Int) {
+       
         self.age = age
         self.inDate = date
         self.prescriptions = []

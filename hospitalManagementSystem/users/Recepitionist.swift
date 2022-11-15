@@ -29,8 +29,8 @@ fileprivate struct BillingCounter
 
 }
 
-class Reciptonist: User
-{
+class Reciptonist: User {
+    
     let name: String
     let id: Int
     let passwordHash: Int
@@ -43,18 +43,18 @@ class Reciptonist: User
     
 
     
-    func generateBill(pat:Patient,details:String)->Bill
-    {
+    func generateBill(pat:Patient,details:String)->Bill {
+        
         return BillingCounter.generateBill(pat,details)
     }
     
-    func acceptBill(_ amount:Int,_ bill:Bill)->String
-    {
-        if(bill.amount>=amount){
+
+    func updateBill(_ amount:Int,_ bill:Bill)->String {
+        
+        if(bill.amount>=amount) {
             bill.amount = bill.amount - amount
             return "bill paid for amount \(amount)"
-        }
-        else{
+        } else {
             let change = amount - bill.amount
             bill.amount = 0
             return "return change of \(change) ruppees"

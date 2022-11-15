@@ -7,8 +7,7 @@
 
 import Foundation
 
-class Bill:Codable
-{
+class Bill {
     let nameOnBill: String
     var amount : Int
     let details : String

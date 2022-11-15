@@ -19,8 +19,8 @@ protocol User : Codable {
 }
 
 
-extension User
-{
+extension User {
+    
     func matchPassword(password: String) -> Bool {
     
         return password.hash == self.passwordHash

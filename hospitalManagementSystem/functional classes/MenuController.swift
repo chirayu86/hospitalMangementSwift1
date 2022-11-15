@@ -51,8 +51,9 @@ class MenuController
                 """
         case pharmacistMenuMessage = """
                   1.add Medicine
-                  2.check if patient bill is paid
-                  3.main menu
+                  2.see all medicines
+                  3.check if patient bill is paid
+                  4.main menu
                """
         case billIsPaid = "bill is paid you can provide the prescription to the patient "
         
@@ -97,46 +98,48 @@ class MenuController
     }
     enum PharmacistMenuCases:Int{
         case addMedicine = 1,
+             seeAllMedicine,
              checkBillStatus,
              mainMenu
     }
     
     static func mainMenu()
     {
-       
+       do
+       {
+           
             Printer.printMessage(.mainMenuMessage)
             print("enter your choice or press 6 to exit")
-            let choice = Validator.intTypeValidator(readLine(), 7)
+            let choice = try Validator.integerValidator(readLine(), 7)
             if choice == 6 {
                 return
             }
             Printer.printMessage(.loginMenuMessage)
-        do
-        {
+       
             switch LoginMenucases(rawValue: choice) {
             case .adminLogin:
                
-                let admin = try Validator.loginValidator(DataBase.sharedDb.getAdminList())
+                let admin = try Validator.loginValidator(DataBase.sharedDb.getAdminDictonary())
                 adminMenu(admin: admin )
           
             case .doctorLogin:
                
-                let doctor = try Validator.loginValidator(DataBase.sharedDb.getDoctorList())
+                let doctor = try Validator.loginValidator(DataBase.sharedDb.getDoctorDictonary())
                 doctorMenu(doctor: doctor )
           
             case .patientLogin:
                 
-                let patient = try Validator.loginValidator(DataBase.sharedDb.getPatientList())
+                let patient = try Validator.loginValidator(DataBase.sharedDb.getPatientDictonary())
                 patientMenu(patient: patient)
          
             case .recptionistLogin:
                 
-                let reciptonist = try Validator.loginValidator( DataBase.sharedDb.getReciptonistList())
+                let reciptonist = try Validator.loginValidator( DataBase.sharedDb.getReciptonistDictonary())
                 reciptionistMenu(reciptonist)
         
             case .pharmacistLogin:
                 
-                let pharmacist = try Validator.loginValidator(DataBase.sharedDb.getPharamcistList())
+                let pharmacist = try Validator.loginValidator(DataBase.sharedDb.getPharamcistDictonary())
                 pharmacistMenu(pharmacist: pharmacist)
           
             case.saveAndExit:
@@ -156,37 +159,44 @@ class MenuController
     
     private static func adminMenu(admin:Admin)
     {
+        do
+        {
+            Printer.printUserInfo(admin)
             Printer.printMessage(.adminMenuMessage)
-            let choice =   Validator.intTypeValidator(readLine(), 5)
+            let choice =  try Validator.integerValidator(readLine(), 5)
             switch AdminMenuCases(rawValue: choice) {
                 
             case .listAllDoctors:
-               
-                Printer.printUserList(DataBase.sharedDb.getDoctorList())
+                
+                Printer.printUserList(DataBase.sharedDb.getDoctorDictonary())
                 adminMenu(admin: admin)
-         
+                
             case .addNewDoctor:
-               
-                let doctor = ObjectFactory.createUser()
+                
+                let doctor = try ObjectFactory.createDoctor()
                 DataBase.sharedDb.storeDoctorToDataBase(doctor)
                 print("added successfully")
                 adminMenu(admin: admin)
-         
+                
             case .removeDoctor:
-               
+                
                 print("enter doctor value to remove")
-                let doctorId =  Validator.intTypeValidator(readLine())
+                let doctorId =  try Validator.integerValidator(readLine())
                 DataBase.sharedDb.removeDoctorFromDatabase(doctorId)
                 print("doctor removed")
                 adminMenu(admin: admin)
-          
+                
             case .mainMenu:
                 
                 mainMenu()
-          
+                
             default:
                 adminMenu(admin: admin)
             }
+        }catch{
+            print(error)
+            adminMenu(admin: admin)
+        }
     }
     
     
@@ -195,21 +205,22 @@ class MenuController
         
         do
         {
+            Printer.printUserInfo(doctor)
             Printer.printMessage(.doctorMenuMessage)
-            let choice =  Validator.intTypeValidator(readLine(), 6)
+            let choice = try Validator.integerValidator(readLine(), 6)
             
             switch DoctorMenuCases(rawValue: choice) {
                 
             case .listAllPatient:
                 
-                Printer.printUserList(DataBase.sharedDb.getPatientList())
+                Printer.printUserList(DataBase.sharedDb.getPatientDictonary())
                 
                 doctorMenu(doctor: doctor)
                 
             case .prescribePatient:
                
                 print("enter the id of patient u want to precribe")
-                let pId =  Validator.intTypeValidator(readLine())
+                let pId = try Validator.integerValidator(readLine())
                 //validating patients exits in database before doing operation
                 guard let patient = DataBase.sharedDb.getPatientFromDatabase(userId: pId)  else {
                     throw ValidationError.noAssociatedValueFound
@@ -229,7 +240,7 @@ class MenuController
             case .getPrescriptionForPatient:
                 
                 print("enter the id of patient to get prescription for")
-                let patientId = Validator.intTypeValidator(readLine())
+                let patientId = try Validator.integerValidator(readLine())
                 guard let temporaryObjectForPatient = doctor.getPatientPreviouslyPrescribed(id: patientId) else {
                    
                     throw ValidationError.noAssociatedValueFound
@@ -259,17 +270,17 @@ class MenuController
     
     
     
-    private static func patientMenu(patient:Patient)
-    {
+    private static func patientMenu(patient:Patient) {
         do
         {
+            Printer.printUserInfo(patient)
             Printer.printMessage(.patientMenuMessage)
-            let choice =   Validator.intTypeValidator(readLine(), 4)
+            let choice =  try Validator.integerValidator(readLine(), 4)
             switch PatientMenuCases(rawValue: choice) {
             case .seeOwnPrescription:
                 
                 if patient.prescriptions.isEmpty == false {
-                    for prescriptions in patient.prescriptions{
+                    for prescriptions in patient.prescriptions {
                         
                         Printer.printPrescription(prescriptions)
                     }
@@ -306,11 +317,12 @@ class MenuController
     
     private static func reciptionistMenu(_ reciptonist: Reciptonist)
     {
-     
+      do
+      {
         func getBill()throws->Bill
         {
             print("enter patient id for bill")
-            let id =  Validator.intTypeValidator(readLine())
+            let id = try Validator.integerValidator(readLine())
             guard let bill = DataBase.sharedDb.getBill(id) else{
               
                 throw ValidationError.noAssociatedValueFound
@@ -318,16 +330,16 @@ class MenuController
             return bill
         }
         
-        do
-        {
+        
+            Printer.printUserInfo(reciptonist)
             Printer.printMessage(.reciptonistMenuMessage)
-            let choice =  Validator.intTypeValidator(readLine(), 7)
+            let choice =  try Validator.integerValidator(readLine(), 7)
             
             switch ReciptonistMenuCases(rawValue: choice) {
                 
             case .addPatient:
               
-                let patient = ObjectFactory.createPatient()
+                let patient = try ObjectFactory.createPatient()
                 DataBase.sharedDb.storePatientToDatabase(patient)
                 reciptionistMenu(reciptonist)
            
@@ -335,16 +347,15 @@ class MenuController
             case .generateBill:
             
                 print("enter the patient Id to generate bill for")
-                let pid =  Validator.intTypeValidator(readLine())
+                let pid = try Validator.integerValidator(readLine())
                 guard let patient = DataBase.sharedDb.getPatientFromDatabase(userId: pid) else {
                     
                     throw ValidationError.invalidId
                     
                 }
                 print("enter bill details")
-                let details = Validator.stringTypeValidator(readLine())
-                if  let unpaidBill = DataBase.sharedDb.getBill(patient.id)
-                {
+                let details = try Validator.emptyStringValidator(readLine())
+                if  let unpaidBill = DataBase.sharedDb.getBill(patient.id) {
                     if unpaidBill.amount>0{
                         print("unpaid bill pay this first")
                         Printer.printBill(unpaidBill)
@@ -354,6 +365,7 @@ class MenuController
                     }
                 }
                 let bill = reciptonist.generateBill(pat: patient,  details: details)
+                print("bill generated successfully")
                 DataBase.sharedDb.storeBillToDatabase(bill)
                 
                 reciptionistMenu(reciptonist)
@@ -361,7 +373,7 @@ class MenuController
             case .removePatient:
              
                 print("enter patient id to remove")
-                let patientId =  Validator.intTypeValidator(readLine())
+                let patientId = try Validator.integerValidator(readLine())
                 DataBase.sharedDb.removePatientFromDataBase(patientId)
                
                 reciptionistMenu(reciptonist)
@@ -371,8 +383,8 @@ class MenuController
                     let bill = try getBill()
                     Printer.printBill(bill)
                     print("enter the amount paid by the patient")
-                    let amount =  Validator.intTypeValidator(readLine())
-                    let message = reciptonist.acceptBill(amount, bill)
+                    let amount =  try Validator.integerValidator(readLine())
+                    let message = reciptonist.updateBill(amount, bill)
                     print(message)
                 
                 
@@ -402,18 +414,30 @@ class MenuController
     
     private static func pharmacistMenu(pharmacist: Pharmacist)
     {
-       
+        do
+        {
+            Printer.printUserInfo(pharmacist)
             Printer.printMessage(.pharmacistMenuMessage)
-            let choice =  Validator.intTypeValidator(readLine(),4)
+            let choice = try Validator.integerValidator(readLine(),4)
             switch PharmacistMenuCases(rawValue: choice) {
             case .addMedicine:
-                let medicine =  ObjectFactory.createMedicineObject()
+                let medicine =  try ObjectFactory.createMedicineObject()
                 pharmacist.addMedicine(medicine)
+                
+                pharmacistMenu(pharmacist: pharmacist)
+                
+            case .seeAllMedicine:
+                let availableMedicineList = Pharamacy.sharedPharmacyObject.getMedicineList()
+                for medicine in availableMedicineList.values
+                {
+                    Printer.printMedicine(medicine)
+                }
+                
                 pharmacistMenu(pharmacist: pharmacist)
             
             case .checkBillStatus:
                 print("enter patient id")
-                let id  =  Validator.intTypeValidator(readLine())
+                let id  =  try Validator.integerValidator(readLine())
                 if let bill = DataBase.sharedDb.getBill(id){
                     if bill.amount == 0 {
                         Printer.printMessage(.billIsPaid)
@@ -422,15 +446,18 @@ class MenuController
                     }
                 } else {
                     Printer.printMessage(Message.billNotFound)
-                 }
+                }
                 
                 pharmacistMenu(pharmacist: pharmacist)
-           
+                
             case .mainMenu:
-                   mainMenu()
+                mainMenu()
             default:
                 pharmacistMenu(pharmacist: pharmacist)
             }
+        }catch{
+            print(error)
+            pharmacistMenu(pharmacist: pharmacist) }
         }
         
     }

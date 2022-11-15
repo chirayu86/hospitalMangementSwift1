@@ -38,8 +38,8 @@ class Pharamacy
     
 }
 
-struct Medicine:Codable
-{
+struct Medicine:Codable {
+    
     let id: Int
     let name:String
     let dosage:String

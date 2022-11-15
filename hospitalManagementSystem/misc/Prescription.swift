@@ -1,8 +1,8 @@
 
 import Foundation
 
-class Prescription:Codable
-{
+class Prescription:Codable {
+    
     let id: Int
     let prescribingDoctor:String
     let prescriptionFor:String

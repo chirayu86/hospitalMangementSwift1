@@ -36,15 +36,15 @@ class JsonHandler
         print("writing data")
         do {
             let encoder = JSONEncoder()
-            let dataOfPatients = try encoder.encode(DataBase.sharedDb.getPatientList())
-            let dataOfDoctors = try encoder.encode(DataBase.sharedDb.getDoctorList())
+            let dataOfPatients = try encoder.encode(DataBase.sharedDb.getPatientDictonary())
+            let dataOfDoctors = try encoder.encode(DataBase.sharedDb.getDoctorDictonary())
             let dataOfMedicine = try encoder.encode(Pharamacy.sharedPharmacyObject.getMedicineList())
             
             try dataOfPatients.write(to: patientFile)
             try dataOfDoctors.write(to: doctorFile)
             try dataOfMedicine.write(to: medicineFile)
         }
-        catch{
+        catch {
             print(error)
         }
     }
@@ -52,7 +52,7 @@ class JsonHandler
     static func initalizeDatabase()    {
         do
         {
-  
+//            print(JsonHandler.getFilePathAsUrl(folderName: "dataFiles", fileName: "patientData"))
             let decoder = JSONDecoder()
             guard let patientData = try String(contentsOf: patientFile).data(using: .utf8) else {
                

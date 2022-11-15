@@ -9,44 +9,74 @@ import Foundation
 
 class ObjectFactory
 {
-    enum ObjectCreationErrors:Error{
-        case invalidUserType
+    
+    enum UserType{
+       
+        case doctor,
+             patient
     }
     
-    enum Users:String{
-        case doctor = "doctor",
-             patient = "patient"
+    //trying out factory method for creating user from a single function
+    static func createUser(_ type: UserType)throws->User
+    {
+        switch type {
+            
+        case .doctor:
+            print("enter doctor name")
+            let name = try Validator.nameValidator(readLine())
+            print("enter user Id")
+            let id = try Validator.integerValidator(readLine())
+            print("set password")
+            let password = try Validator.emptyStringValidator(readLine())
+            print("enter doctor Department")
+            let department = try Validator.emptyStringValidator(readLine())
+            return Doctor(department: department, name: name, id: id, Passwordhash: password.hash)
+            
+        case.patient:
+            print("enter patient name")
+            let name = try Validator.nameValidator(readLine())
+            print("enter user Id")
+            let id = try Validator.integerValidator(readLine())
+            print("set password")
+            let password = try Validator.emptyStringValidator(readLine())
+            print("enter patient in Date")
+            let inDate = try Validator.emptyStringValidator(readLine())
+            print("enter the age of the patient")
+            let age = try Validator.integerValidator(readLine())
+            return Patient(age: age, date: inDate, name: name, id: id, passwordHash: password.hash)
+            
+        }
     }
     
     
-    static func createUser()->Doctor {
+    static func createDoctor()throws->Doctor {
         
         print("enter doctor name")
-        let name = Validator.stringTypeValidator(readLine())
+        let name = try Validator.nameValidator(readLine())
         print("enter user Id")
-        let id = Validator.intTypeValidator(readLine())
+        let id = try Validator.integerValidator(readLine())
         print("set password")
-        let password =  Validator.stringTypeValidator(readLine())
+        let password = try Validator.emptyStringValidator(readLine())
         print("enter doctor Department")
-        let department = Validator.stringTypeValidator(readLine())
+        let department = try Validator.emptyStringValidator(readLine())
         return Doctor(department: department, name: name, id: id, Passwordhash: password.hash)
        
        
 }
         
     
-        static func createPatient()->Patient {
+        static func createPatient()throws->Patient {
             
                 print("enter patient name")
-                let name = Validator.stringTypeValidator(readLine())
+                let name = try Validator.nameValidator(readLine())
                 print("enter user Id")
-                let id = Validator.intTypeValidator(readLine())
+                let id = try Validator.integerValidator(readLine())
                 print("set password")
-                let password =  Validator.stringTypeValidator(readLine())
+                let password = try Validator.emptyStringValidator(readLine())
                 print("enter patient in Date")
-                let inDate = Validator.stringTypeValidator(readLine())
+                let inDate = try Validator.emptyStringValidator(readLine())
                 print("enter the age of the patient")
-                let age = Validator.intTypeValidator(readLine())
+                let age = try Validator.integerValidator(readLine())
                 return Patient(age: age, date: inDate, name: name, id: id, passwordHash: password.hash)
             }
                 
@@ -54,63 +84,65 @@ class ObjectFactory
     
     static func createPrescription(doctor:Doctor,patient:Patient)throws->Prescription {
       
-        var testList: [Test] = []
-        var medicineList: [Medicine] = []
-        let availableTestList = doctor.getAvailableTests()
-        print("available test List")
-        for (key,value) in availableTestList {
+        var prescribedTestList: [Test] = []
+        var prescribedMedicineList: [Medicine] = []
+       
+        let availableTestList = Lab.sharedLabObject.getTestList()
+        print("-----available test List---------")
+        for test in availableTestList.values {
             
-            print("----")
-            print(key)
-            Printer.printTest(value)
+            Printer.printTest(test)
         }
-        print("enter the no of tests")
-        let numberOfTests = Validator.intTypeValidator(readLine(), 5)
+        print("enter the no of tests you want to prescribe(maximum 4)")
+        let numberOfTests = try Validator.integerValidator(readLine(), 5)
         for _ in 0..<numberOfTests {
             print("enter the id of test")
-            let test = Validator.intTypeValidator(readLine())
+            let test = try Validator.integerValidator(readLine())
             guard let test = availableTestList[test] else {
                 
-                throw ValidationError.invalidId
+                print("invalid id")
+                return try createPrescription(doctor: doctor, patient: patient)
                 
             }
-            testList.append(test)
+            prescribedTestList.append(test)
         }
         print("available medicine list")
-        let availableMedicineList = doctor.getAvailableMedicines()
-        for (key,medicine) in availableMedicineList{
-            print(key)
+        let availableMedicineList = Pharamacy.sharedPharmacyObject.getMedicineList()
+        for medicine in availableMedicineList.values {
+        
             Printer.printMedicine(medicine)
         }
         print("enter the number of medicines")
-        let numberOfmedicine = Validator.intTypeValidator(readLine(), 5)
+        let numberOfmedicine = try Validator.integerValidator(readLine(), 5)
         for _ in 0..<numberOfmedicine {
             print("enter id of medicine")
-            let medicineId =  Validator.intTypeValidator(readLine())
+            let medicineId =  try Validator.integerValidator(readLine())
             guard let medicine = availableMedicineList[medicineId] else {
-                throw ValidationError.invalidId
+                
+                print("invalid id")
+               return try createPrescription(doctor: doctor, patient: patient)
                 
             }
-            medicineList.append(medicine)
+            prescribedMedicineList.append(medicine)
         }
         print("write a note")
-        let note = Validator.stringTypeValidator(readLine())
+        let note = try Validator.emptyStringValidator(readLine())
         
-        return Prescription(prescribingDoctor: doctor.name, prescriptionFor: patient.name, testList: testList, medicinesList: medicineList, noteFromDoctor: note, prescriptionId: patient.id)
+        return Prescription(prescribingDoctor: doctor.name, prescriptionFor: patient.name, testList: prescribedTestList, medicinesList: prescribedMedicineList, noteFromDoctor: note, prescriptionId: patient.id)
    
     }
     
     
-    static func createMedicineObject()->Medicine {
+    static func createMedicineObject()throws->Medicine {
         
             print("enter the name of medicine")
-            let name = Validator.stringTypeValidator(readLine())
+            let name = try Validator.nameValidator(readLine())
             print("enter medicine id")
-            let id = Validator.intTypeValidator(readLine())
+            let id = try Validator.integerValidator(readLine())
             print("enter prescribed dose")
-            let dose = Validator.stringTypeValidator(readLine())
+            let dose = try Validator.emptyStringValidator(readLine())
             print("enter cost of medicine")
-            let cost = Validator.intTypeValidator(readLine())
+            let cost = try Validator.integerValidator(readLine())
             return Medicine(id: id, name: name, dosage: dose, cost: cost)
         
     }

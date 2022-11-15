@@ -9,5 +9,4 @@ import Foundation
 
 JsonHandler.initalizeDatabase()
 MenuController.mainMenu()
-
 JsonHandler.addToJson()

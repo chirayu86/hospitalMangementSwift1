@@ -16,7 +16,7 @@ class DataBase
     {
     }
     
-    private var billList: [Int:Bill] = [:]
+    private var billDictonary: [Int:Bill] = [:]
 
     private var patientDictonary: [Int:Patient] = [:]
    
@@ -36,26 +36,26 @@ class DataBase
     }
     
     //methods the get the entire user list
-    func getPatientList()->[Int:Patient] {
+    func getPatientDictonary()->[Int:Patient] {
         return patientDictonary
     }
     
-    func getDoctorList()->[Int:Doctor]{
+    func getDoctorDictonary()->[Int:Doctor]{
         return doctorDictonary
         
     }
    
-    func getAdminList()->[Int:Admin]{
+    func getAdminDictonary()->[Int:Admin]{
         return adminDictonary
          
     }
  
-    func getReciptonistList()->[Int:Reciptonist]{
+    func getReciptonistDictonary()->[Int:Reciptonist]{
         return reciptonistDictonary
         
     }
    
-    func getPharamcistList()->[Int:Pharmacist]{
+    func getPharamcistDictonary()->[Int:Pharmacist]{
         return pharmacistDictonary
         
     }
@@ -84,7 +84,7 @@ class DataBase
     
     //misc getter methods
     func getBill(_ billId: Int)->Bill?{
-        return billList[billId]
+        return billDictonary[billId]
         
     }
     
@@ -110,7 +110,7 @@ class DataBase
     }
     
     func storeBillToDatabase(_ bill:Bill){
-        billList[bill.id] = bill
+        billDictonary[bill.id] = bill
         
     }
     
